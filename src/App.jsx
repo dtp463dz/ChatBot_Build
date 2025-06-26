@@ -1,34 +1,52 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import ChatbotIcon from "./components/ChatbotIcon"
+import ChatForm from "./components/ChatForm";
+import "./index.css";
+import ChatMessage from "./components/ChatMessage";
+const App = () => {
+  const [chatHistory, setChatHistory] = useState([]);
 
-function App() {
-  const [count, setCount] = useState(0)
+  // history : lich su chat
+  const generateBotResponse = (history) => {
+    console.log('check history: ', history)
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="container">
+      <div className="chatbot-popup">
+        <div className="chat-header">
+          <div className="header-info">
+            <ChatbotIcon />
+            <h2 className="logo-text">Chatbot</h2>
+          </div>
+          <button className="material-symbols-rounded">
+            keyboard_arrow_down
+          </button>
+        </div>
+
+        <div className="chat-body">
+          <div className="message bot-message">
+            <ChatbotIcon />
+            <p className="message-text">
+              Hey there 👋 <br /> How can I help you today?
+            </p>
+          </div>
+
+          {chatHistory.map((chat, index) => (
+            <ChatMessage key={index} chat={chat} />
+          ))}
+
+          <div className="chat-footer">
+            <ChatForm
+              setChatHistory={setChatHistory}
+              chatHistory={chatHistory}
+              generateBotResponse={generateBotResponse}
+            />
+          </div>
+        </div>
+
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </div>
   )
 }
 
