@@ -15,7 +15,7 @@ const App = () => {
     {
       hideInChat: false,
       role: "model",
-      text: "Xin chào! Tôi là Trợ lý Y tế, có thể tư vấn về các vấn đề sức khỏe, đặt lịch khám, hoặc đề xuất cơ sở y tế phù hợp. Hãy cho tôi biết bạn đang gặp vấn đề gì hoặc cần hỗ trợ gì nhé!",
+      text: "Xin chào! Tôi là Trợ lý Y tế của hệ thống Booking Health, có thể tư vấn về các vấn đề sức khỏe, thông tin về các căn bệnh và tác dụng của các loại thuốc trên thị trường, đặt lịch khám, và đề xuất cơ sở y tế phù hợp. Hãy cho tôi biết bạn đang gặp vấn đề gì hoặc cần hỗ trợ gì nhé!",
     },
   ]);
   const [showChatBot, setShowChatBot] = useState(false);
